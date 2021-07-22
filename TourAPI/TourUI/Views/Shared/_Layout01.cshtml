@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @* css *@
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="~/vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="~/vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="~/css/fontastic.css">
+    <!-- Google fonts - Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <!-- jQuery Circle-->
+    <link rel="stylesheet" href="~/css/grasp_mobile_progress_circle-1.0.0.min.css">
+    <!-- Custom Scrollbar-->
+    <link rel="stylesheet" href="~/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="~/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="~/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="~/img/favicon.ico">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+    <script src="~/https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="~/https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<body>
+    <nav class="side-navbar">
+        <div class="side-navbar-wrapper">
+            <!-- Sidebar Header    -->
+            <div class="sidenav-header d-flex align-items-center justify-content-center">
+                <!-- User Info-->
+                <div class="sidenav-header-inner text-center">
+                    <img src="~/img/jiangwen.jpg" alt="person" class="img-fluid rounded-circle">
+                    <h2 class="h5">@TempData.Peek("loginName")</h2><span>@TempData.Peek("LoginPosition")</span>
+                </div>
+                <!-- Small Brand information, appears on minimized sidebar-->
+                <div class="sidenav-header-logo">
+                    <a href="Success.html" class="brand-small text-center">
+                        <img src="~/img/jiangwen.jpg" alt="person" class="img-fluid rounded-circle">
+                    </a>
+                </div>
+            </div>
+            <!-- Sidebar Navigation Menus-->
+            <div class="main-menu">
+                <h5 class="sidenav-heading">菜单</h5>
+                <ul id="side-main-menu" class="side-menu list-unstyled">
+                    <li><a asp-controller="Customer" asp-action="Index"> <i class="icon-interface-windows"></i>客户管理</a></li>
+                    <li><a asp-controller="LineType" asp-action="Index"> <i class="icon-interface-windows"></i>线路类型</a></li>
+                    <li><a asp-controller="Line" asp-action="Index"> <i class="icon-interface-windows"></i>线路管理</a></li>
+                    <li><a asp-controller="Orders" asp-action="Index"> <i class="icon-interface-windows"></i>订单管理</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page">
+        <!-- navbar-->
+        <header class="header">
+            <nav class="navbar">
+                <div class="container-fluid">
+                    <div class="navbar-holder d-flex align-items-center justify-content-between">
+                        <div class="navbar-header">
+                            <a id="toggle-btn" href="#" class="menu-btn">
+                                <i class="icon-bars"> </i>
+                            </a>
+                            <a href="index.html" class="navbar-brand">
+                                <div class="brand-text d-none d-md-inline-block">
+                                    <span>天涯</span>
+                                    <strong class="text-primary">旅行</strong>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="nav-item">
+                            <a asp-controller="Home" asp-action="Logout" class="nav-link logout">
+                                <span class="d-none d-sm-inline-block">退出</span>
+                                <i class="fa fa-sign-out"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!--页面表头-->
+        <div class="breadcrumb-holder">
+            <div class="container-fluid">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#">客户</a>
+                    </li>
+                    <li class="breadcrumb-item active">@ViewData["Title"].ToString().Substring(0, 2)</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            @RenderBody()
+        </div>
+        <footer class="main-footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p>版权归XX公司所有@2018-2020</p>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+        @* js *@
+        <!-- JavaScript files-->
+        <script src="~/vendor/jquery/jquery.min.js"></script>
+        <script src="~/vendor/popper.js/umd/popper.min.js"></script>
+        <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="~/js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
+        <script src="~/vendor/jquery.cookie/jquery.cookie.js"></script>
+        <script src="~/vendor/chart.js/Chart.min.js"></script>
+        <script src="~/vendor/jquery-validation/jquery.validate.min.js"></script>
+        <script src="~/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+        <!-- Main File-->
+        <script src="~/js/front.js"></script>
+</body>
+</html>

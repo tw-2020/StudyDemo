@@ -1,0 +1,25 @@
+﻿@model TourUI.Models.LineType
+@{
+    ViewData["Title"] = "修改线路页面";
+}
+
+<div class="card">
+    <div class="card-header d-flex align-items-center">
+        <h4>线路修改</h4>
+    </div>
+    <div class="card-body">
+        <form asp-controller="LineType" asp-action="Edit" method="post">
+            <div class="form-group">
+                <input type="hidden" name="TypeName" class="input-material" value="@Model.LineTypeId">
+            </div>
+            <div class="form-group">
+                <label>旅游线路</label>
+                <input type="text" name="TypeName" class="input-material" value="@Model.TypeName">
+            </div>
+
+            <div class="form-group">
+                <a href="#" onclick="edit(@Model.LineTypeId)">编辑</a> | <a href="/LineType/Index">返回客户列表</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+﻿@model IEnumerable<TourUI.Models.LineType>
+@{
+    ViewData["Title"] = "登录成功";
+    Layout = "~/Views/Shared/_Layout01.cshtml";
+}
+
+<section>
+    <div id="page" class="container-fluid">
+        <!--Page Header-->
+        <header>
+            <h1 class="h3 display">
+                <a href="#" onclick="createLineType()">创建线路</a>
+            </h1>
+        </header>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>旅游路线列表</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>客户姓名</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (TourUI.Models.LineType lineType in @Model)
+                                    {
+                                        <tr>
+                                            <th scope="row">@lineType.TypeName</th>
+                                            <td>
+                                                <a href="#" onclick="edit(@lineType.LineTypeId)">编辑</a> |
+                                                <a href="#" onclick="detail(@lineType.LineTypeId)">详细</a> |
+                                                <a href="#" onclick="deletes(@lineType.LineTypeId)">删除</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script src="~/UI/jquery-1.7.1.min.js"></script>
+<script src="~/UI/jquery.unobtrusive-ajax.min.js"></script>
+
+<script type="text/javascript">
+    //添加客户
+    function createLineType() {
+        var url = '/LineType/create';
+        $.get(url, function (data) {
+            $("#page").html(data);
+        })
+    }
+
+    //修改客户信息
+    function edit(id) {
+        var url = '/LineType/edit/' + id;
+        $.get(url, function (data) {
+            $("#page").html(data);
+        })
+    }
+
+    //客户详情信息
+    function detail(id) {
+        var url = '/LineType/detail/' + id;
+        $.get(url, function (data) {
+            $("#page").html(data);
+        })
+    }
+
+    //删除客户信息
+    function deletes(id) {
+        var url = '/LineType/delete/' + id;
+        $.get(url, function (data) {
+            $("#page").html(data);
+        })
+    }
+</script>

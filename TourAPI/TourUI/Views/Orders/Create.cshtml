@@ -1,0 +1,51 @@
+﻿@model TourUI.Models.Orders
+@{
+    ViewData["Title"] = "创建景区页面";
+}
+
+<div class="card">
+    <div class="card-header d-flex align-items-center">
+        <h4>订单创建</h4>
+    </div>
+    <div class="card-body">
+        <form asp-controller="Orders" asp-action="create" method="post">
+
+            <div class="form-group">
+                <label>客户</label>
+                <input type="text" name="CustomerName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>线路类型</label>
+                <input type="text" name="LineTypeId" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>线路</label>
+                <input type="text" name="LineId" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>订单日期</label>
+                <input type="text" name="OrdersDate" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>订单金额</label>
+                <input type="text" name="OrdersDate" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>订购人次</label>
+                <input type="text" name="ManTimes" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>折扣系数</label>
+                <input type="text" name="Discount" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>实际金额</label>
+                <input type="text" name="EffectiveAmount" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="创建" class="btn btn-primary">
+            </div>
+            <a href="/Orders/Index">返回线路列表</a>
+        </form>
+    </div>
+</div>

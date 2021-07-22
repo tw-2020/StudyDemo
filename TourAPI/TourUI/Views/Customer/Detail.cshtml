@@ -1,0 +1,39 @@
+﻿@model TourUI.Models.Customer
+@{
+    ViewData["Title"] = "详细页面";
+}
+<div class="card">
+    <div class="card-header d-flex align-items-center">
+        <h4>客户修改</h4>
+    </div>
+    <div class="card-body">
+        <form action="/Customer/Edit" method="post">
+            <div class="form-group">
+                <input type="hidden" name="customerId" class="input-material" value="@Model.CustomerId">
+            </div>
+            <div class="form-group">
+                <label>客户姓名</label>
+                <input type="text" name="customerName" class="input-material" value="@Model.CustomerName">
+            </div>
+            <br />
+            <div class="form-group">
+                <label>客户性别</label>
+                <input type="text" name="Gender" class="input-material" value="@Model.Gender">
+            </div>
+            <br />
+            <div class="form-group">
+                <label>客户身份证号</label>
+                <input type="text" name="IdentityId" class="input-material" value="@Model.IdentityId">
+            </div>
+            <br />
+            <div class="form-group">
+                <label>客户电话</label>
+                <input type="text" name="TEL" class="input-material" value="@Model.TEL">
+            </div>
+            @Html.HiddenFor(model => model.CustomerId)
+            <div>
+                <a href="#" onclick="edit(@Model.CustomerId)">编辑</a> | <a href="/Customer/Index">返回客户列表</a>
+            </div>
+        </form>
+    </div>
+</div>

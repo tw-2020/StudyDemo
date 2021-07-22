@@ -1,0 +1,25 @@
+﻿@model TourUI.Models.LineType
+@{
+    ViewData["Title"] = "删除线路页面";
+}
+
+<div class="card">
+    <div class="card-header d-flex align-items-center">
+        <h4>删除</h4>
+    </div>
+    <div class="card-body">
+        <form asp-controller="LineType" asp-action="deleteConfig" method="post">
+            <div class="form-group">
+                <input type="hidden" name="LineTypeId" class="input-material" value="@Model.LineTypeId">
+            </div>
+            <div class="form-group">
+                <label>旅游线路</label>
+                <input type="text" name="TypeName" class="input-material" value="@Model.TypeName">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="删除" class="btn btn-primary">
+            </div>
+            <a href="/LineType/Index">返回线路列表</a>
+        </form>
+    </div>
+</div>

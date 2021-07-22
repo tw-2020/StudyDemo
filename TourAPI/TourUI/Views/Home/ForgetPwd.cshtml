@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "重置密码";
+}
+
+<div class="page login-page">
+    <div class="container">
+        <div class="form-outer text-center d-flex align-items-center">
+            <div class="form-inner">
+                <div class="logo text-uppercase">
+                    <span>天涯</span>
+                    <strong class="text-primary">旅行</strong>
+                </div>
+                <p> 良好的企业形象是一个企业的无形财产，企业员工的形象是企业形象的缩影，请求‘员工先做人后唱工’</p>
+                <form action="/Home/ForgetPwd" method="post" class="text-left form-validate">
+                    <div class="form-group-material">
+                        <input id="register-useraccount" type="text" name="UserAccount" required="" data-msg="Please enter your username" class="input-material">
+                        <label for="register-useraccount" class="label-material">用户账号</label>
+                    </div>
+                    <div class="form-group-material">
+                        <input id="login-password" type="password" name="UserPassword" required="" data-msg="Please enter your password" class="input-material">
+                        <label for="login-password" class="label-material">新密码</label>
+                        <span class="sp" style="color: red; font-size: 10px; display: none">两次密码需要一致</span>
+                    </div>
+                    <div class="form-group-material">
+                        <input id="login-okpassword" type="password" name="loginPassword" required="" data-msg="Please enter your password" class="input-material">
+                        <label for="login-okpassword" class="label-material">确认密码</label>
+                        <span class="sp" style="color:red ;font-size:10px ;display:none">两次密码需要一致</span>
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="submit" id="login" class="btn btn-primary" value="修改密码">
+                    </div>
+                </form>
+                <a href="/Home/Index" class="forgot-pass">登录</a>
+                <small>让我们拥有自己的账号吧? </small>
+                <a href="/Home/Register" class="signup">注册</a>
+
+            </div>
+            <div class="copyrights text-center">
+                <p>版权归XX公司所有@2018-2020</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    
+</script>

@@ -1,0 +1,101 @@
+﻿@model IEnumerable<TourUI.Models.Line>
+@{
+    ViewData["Title"] = "登录成功";
+    Layout = "~/Views/Shared/_Layout01.cshtml";
+}
+
+<section>
+    <div id="page" class="container-fluid">
+        <!--Page Header-->
+        <header>
+            <h1 class="h3 display">
+                <a href="#" onclick="createLine()">创建景点</a>
+            </h1>
+        </header>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>旅游景点列表</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(model => model.LineTypeId)</th>
+                                        <th>@Html.DisplayNameFor(model => model.LineName)</th>
+                                        <th>@Html.DisplayNameFor(model => model.Days)</th>
+                                        <th>@Html.DisplayNameFor(model => model.Price)</th>
+                                        <th>@Html.DisplayNameFor(model => model.Vehicle)</th>
+                                        <th>@Html.DisplayNameFor(model => model.Hotel)</th>
+                                        <th>@Html.DisplayNameFor(model => model.HasMeal)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (TourUI.Models.Line Line in @Model)
+                                    {
+                                    <tr>
+                                        <th scope="row">@(Line.LineTypeId==3? "出境游":(Line.LineTypeId==1?"国内短线游": (Line.LineTypeId == 2 ? "国内长线游" : "")))</th>
+                                        <th scope="row">@Line.LineName</th>
+                                        <th scope="row">@Line.Days</th>
+                                        <th scope="row">@Line.Price</th>
+                                        <th scope="row">@Line.Vehicle</th>
+                                        <th scope="row">@Line.Hotel</th>
+                                        <th scope="row">@Line.HasMeal</th>
+                                        <td>
+                                            <a href="#" onclick="edit(@Line.LineId)">编辑</a> |
+                                            <a href="#" onclick="detail(@Line.LineId)">详细</a> |
+                                            <a href="#" onclick="deletes(@Line.LineId)">删除</a>
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script src="~/UI/jquery-1.7.1.min.js"></script>
+<script src="~/UI/jquery.unobtrusive-ajax.min.js"></script>
+
+<script type="text/javascript">
+    //添加客户
+    function createLine() {
+        var url = '/Line/create';
+        $.get(url, function (data) {
+            $("#page").html(data);
+        })
+    }
+
+    //修改客户信息
+    function edit(id) {
+        var url = '/Line/edit/' + id;
+        $.get(url, function (data) {
+            $("#page").html(data);
+        })
+    }
+
+    //客户详情信息
+    function detail(id) {
+        var url = '/Line/detail/' + id;
+        $.get(url, function (data) {
+            $("#page").html(data);
+        })
+    }
+
+    //删除客户信息
+    function deletes(LineId) {
+        var url = '/Line/delete/' + LineId;
+        $.get(url, function (data) {
+            $("#page").html(data);
+        })
+    }
+
+</script>

@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TourAPI</name>
+    </assembly>
+    <members>
+        <member name="M:TourAPI.Controllers.CustomerController.CreateCustomer(TourAPI.Models.Customer)">
+            <summary>
+            添加一个用户
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.CustomerController.GetCustomerById(System.Int32)">
+            <summary>
+            通过id取得Customer的详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.CustomerController.UpdateCustomer(TourAPI.Models.Customer)">
+            <summary>
+            修改用户
+            </summary>
+            <param name="customer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.CustomerController.DeleteCustomer(System.Int32)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="customer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.LineController.GetAllLine">
+            <summary>
+            获取所有景点详情
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.LineController.CreateLine(TourAPI.Models.Line)">
+            <summary>
+            添加新的景点详情
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.LineController.GetLineById(System.Int32)">
+            <summary>
+            根据id查找景点详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.LineController.EditLine(TourAPI.Models.Line)">
+            <summary>
+            编辑景点详情
+            </summary>
+            <param name="Line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.LineController.DeleteLineById(System.Int32)">
+            <summary>
+            根据id删除景点详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.LineTypeController.GetAllLine">
+            <summary>
+            获取所有旅游线路
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.LineTypeController.CreateLineType(TourAPI.Models.LineType)">
+            <summary>
+            添加新的旅游路线
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.LineTypeController.GetLineTypeById(System.Int32)">
+            <summary>
+            根据id查找路线
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.LineTypeController.EditLineType(TourAPI.Models.LineType)">
+            <summary>
+            编辑路线
+            </summary>
+            <param name="lineType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.LineTypeController.DeleteLineTypeById(System.Int32)">
+            <summary>
+            根据id删除线路
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.OrdersController.GetAllOrders">
+            <summary>
+            获取所有订单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.OrdersController.CreateOrders(TourAPI.Models.Orders)">
+            <summary>
+            添加新的订单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.OrdersController.GetOrdersById(System.Int32)">
+            <summary>
+            根据id查找订单
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.OrdersController.EditOrders(TourAPI.Models.Orders)">
+            <summary>
+            编辑订单
+            </summary>
+            <param name="Orders"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.OrdersController.DeleteOrdersById(System.Int32)">
+            <summary>
+            根据id删除订单
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.OrdersLineDetailController.GetAllOrderLineDetail">
+            <summary>
+            获取所有订单路线详情
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.OrdersLineDetailController.CreateOrderLineDetail(TourAPI.Models.OrdersLineDetail)">
+            <summary>
+            添加新的订单路线详情
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.OrdersLineDetailController.GetOrderLineDetailById(System.Int32)">
+            <summary>
+            根据OrdreId查找订单路线详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.OrdersLineDetailController.EditOrderLineDetail(TourAPI.Models.OrdersLineDetail)">
+            <summary>
+            编辑订单路线详情
+            </summary>
+            <param name="OrderLineDetail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.OrdersLineDetailController.DeleteOrderLineDetailById(System.Int32)">
+            <summary>
+            根据id删除订单路线详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.UserInfoController.Login(TourAPI.ViewModels.UserInfoLoginViewModel)">
+            <summary>
+             用户登录
+            </summary>
+            <returns> 用户实体 </returns>
+        </member>
+        <member name="M:TourAPI.Controllers.UserInfoController.CreateUserInfo(TourAPI.Models.UserInfo)">
+            <summary>
+            注册用户
+            </summary>
+            <param name="userInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.UserInfoController.GetUserInfo(System.String)">
+            <summary>
+            获取User详情信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.UserInfoController.UpdateUser(TourAPI.Models.UserInfo)">
+            <summary>
+            修改UserInfo信息
+            </summary>
+            <param name="userInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TourAPI.Controllers.UserInfoController.GetAllCustomers">
+            <summary>
+            获取所有的客户信息
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
