@@ -1,0 +1,86 @@
+﻿@using ExamUI.Models
+<!--当前页面分布式图-->
+@model ExamUI.Models.Detail
+@{
+    Answer answer = Model.Answer;
+    string curanswer = Model.DetailAnswer;
+}
+
+<h3>第 @ViewBag.sort 题 @Model.Topic.TopicExplain 共 @ViewBag.count 题</h3>
+@Html.HiddenFor(model => model.DetailId)
+@Html.HiddenFor(model => model.TopicId)
+@Html.HiddenFor(model => model.AnswerId)
+<input type="hidden" id="sort" name="sort" value="@ViewBag.sort" />
+<input type="hidden" id="count" name="count" value="@ViewBag.count" />
+@if (Model.Topic.TopicType == 1)
+{<!--选择题-->
+    <ul>
+        @if (Model.Topic.TopicType == 1)
+        {
+            if (curanswer == "A")
+            {
+                <li>@Html.RadioButtonFor(model => model.DetailAnswer, "A", new { @checked = "checked" }) A. @Model.Topic.TopicA</li>
+            }
+            else
+            {
+                <li>@Html.RadioButtonFor(model => model.DetailAnswer, "A") A. @Model.Topic.TopicA</li>
+            }
+            if (curanswer == "B")
+            {
+                <li>@Html.RadioButtonFor(model => model.DetailAnswer, "B", new { @checked = "checked" }) B. @Model.Topic.TopicB</li>
+            }
+            else
+            {
+                <li>@Html.RadioButtonFor(model => model.DetailAnswer, "B") B. @Model.Topic.TopicB</li>
+            }
+            if (curanswer == "C")
+            {
+                <li>@Html.RadioButtonFor(model => model.DetailAnswer, "C", new { @checked = "checked" }) C. @Model.Topic.TopicC</li>
+            }
+            else
+            {
+                <li>@Html.RadioButtonFor(model => model.DetailAnswer, "C") C. @Model.Topic.TopicC</li>
+            }
+            if (curanswer == "D")
+            {
+                <li>@Html.RadioButtonFor(model => model.DetailAnswer, "D", new { @checked = "checked" }) D. @Model.Topic.TopicD</li>
+            }
+            else
+            {
+                <li>@Html.RadioButtonFor(model => model.DetailAnswer, "D") D. @Model.Topic.TopicD</li>
+            }
+        }
+    </ul>
+}
+
+@if (Model.Topic.TopicType == 2)
+{
+    <ul>
+        @if (curanswer == "1")
+        {
+            <li>@Html.RadioButtonFor(model => model.DetailAnswer, 1, new { @checked = "checked" }) 正确 </li>
+            <li>@Html.RadioButtonFor(model => model.DetailAnswer, 0) 错误</li>
+        }
+        else if (curanswer == "0")
+        {
+            <li>@Html.RadioButtonFor(model => model.DetailAnswer, 1) 正确</li>
+            <li>@Html.RadioButtonFor(model => model.DetailAnswer, 0, new { @checked = "checked" }) 错误</li>
+        }
+        else
+        {
+            <li>@Html.RadioButtonFor(model => model.DetailAnswer, 0) 错误</li>
+            <li>@Html.RadioButtonFor(model => model.DetailAnswer, 1) 正确</li>
+        }
+    </ul>
+}
+
+@if (Model.Topic.TopicType == 3)
+{
+    <ul><li>@Html.TextAreaFor(model => model.DetailAnswer)</li></ul>
+}
+
+<div class="col-md-offset-2 col-md-10">
+
+    <input type="submit" value="提交" class="btn-default" />
+
+</div>

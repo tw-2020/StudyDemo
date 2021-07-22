@@ -1,0 +1,56 @@
+﻿@model ExamUI.Models.Student
+@{
+    ViewBag.Title = "删除学生";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h2>删除学生</h2>
+
+<div>
+    <h4>学生信息</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StuName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StuName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StuSex)
+        </dt>
+        <dd>
+            @(Model.StuSex?"男":"女")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StuPhone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StuPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StuEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StuEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StuGrade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StuGrade)
+        </dd>
+    </dl>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <input type="submit" value="删除" class="btn btn-default"/> |
+        @Html.ActionLink("返回学生列表","Index")
+    </div>
+}

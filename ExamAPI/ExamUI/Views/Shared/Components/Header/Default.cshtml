@@ -1,0 +1,12 @@
+﻿@if ((ViewBag.LoginID == 0 ) || (ViewBag.Type == null))
+{
+    @Html.Partial("_PartialHeader") 
+}
+else if (ViewBag.Type == "老师")
+{
+    @Html.Partial("_PartialHeaderTeacher");
+}
+else if (ViewBag.Type == "学生")
+{
+    @Html.Partial("_PartialHeaderStudent");
+}

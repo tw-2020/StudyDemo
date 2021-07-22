@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ExamUI.Models.Answer>
+
+@{ ViewBag.Title = "我的考试";
+                Layout = "~/Views/Shared/_Layout.cshtml";
+ }
+
+<h2>我的考试</h2>
+<table class="table">
+    <tr>
+        <th>学生姓名</th>
+        <th>试卷</th>
+        <th>批卷</th>
+        <th>分数</th>
+        <th>操作</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modeliitem => item.Student.StuName)</td>
+            <td>@Html.DisplayFor(modeliItem => item.Paper.PaperExplain)</td>
+            <td>@(item.AnswerState == 0? "答题中":item.AnswerState == 1?"未批阅":"已批阅")</td>
+            <td>@Html.DisplayFor(modeliitem => item.AnswerScore)</td>
+            <td>
+                @Html.ActionLink("查看详细", "MyAnswerDetails", new { controller = "Answers", AnswerId = item.AnswerID })
+                @if (item.AnswerState == 0)
+                {
+                    @Html.ActionLink("继续答题", "BeginAnswer", new { controller = "Papers", PaperID = item.PaperID, AnswerID = item.AnswerID }) 
+                }
+            </td>
+        </tr>
+    }
+</table>

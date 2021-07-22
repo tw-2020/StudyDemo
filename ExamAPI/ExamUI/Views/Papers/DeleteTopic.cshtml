@@ -1,0 +1,56 @@
+﻿@model ExamUI.Models.Topic
+@{
+    ViewBag.Title = "删除试卷";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h2>删除试题</h2>
+
+<div>
+    <h4>是否确认删除？考题信息</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicExplain)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TopicExplain)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicScore)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TopicScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicType)
+        </dt>
+        <dd>
+            @if (Model.TopicType == 1)
+            {
+                <span>选择题</span>
+            }
+            else if (Model.TopicType == 2)
+            {
+                <span>判断题</span>
+            }
+            else
+            { 
+                <span>问答题</span>
+            }
+        </dd>
+
+    </dl>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <input type="submit" value="删除" class="btn btn-default" /> <br/>
+        @Html.ActionLink("返回试题详情", "Details", new { Model.PaperId })
+    </div>
+}

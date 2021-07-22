@@ -1,0 +1,43 @@
+﻿@model ExamUI.Models.Answer
+
+<fieldset>试卷内容</fieldset>
+<ul style="list-style:inside;">
+
+    @foreach (ExamUI.Models.Detail detail in ViewBag.Details)
+    {
+        <li style="padding:20px;">
+            <span style="font-weight:bold">@detail.Topic.TopicExplain (@detail.Topic.TopicScore 分)</span>
+            <ul>
+                @if (detail.Topic.TopicType == 1)
+                {
+                    <li>A. @detail.Topic.TopicA</li>
+                    <li>B. @detail.Topic.TopicB</li>
+                    <li>C. @detail.Topic.TopicC</li>
+                    <li>D. @detail.Topic.TopicD</li>
+                    <li style="color:blue">您的答案是：@detail.DetailAnswer</li>
+
+                }
+                else if (detail.Topic.TopicType == 2)
+                {
+                    if (detail.DetailAnswer != null)
+                    {
+                        <li style="color:blue">您的答案是：@(detail.DetailAnswer.Equals("0") ? "正确" :"错误")</li>
+                    }
+                    else
+                    {
+                        <li style="color:blue">您的答案是：</li>
+                    }
+
+                }
+                else if (detail.Topic.TopicType == 3)
+                {
+                    <li style="color:blue">您的答案是：@detail.DetailAnswer</li>
+
+                }
+            </ul>
+
+
+        </li>
+    }
+
+</ul>

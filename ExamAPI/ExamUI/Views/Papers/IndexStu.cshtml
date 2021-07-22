@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ExamUI.Models.Paper>
+@{ 
+    ViewBag.title = "在线考试";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>试卷列表</h2>
+
+<p>说明：一旦点击“开始答题”，那么标识考试正式开始，直至结束。无法再次点击该考试。因此请考生准备好后，再开始答题。</p>
+
+<table class="table">
+    <tr>
+        <td>@Html.DisplayNameFor(Model => Model.PaperName)</td>
+        <td>@Html.DisplayNameFor(Model => Model.PaperExplain)</td>
+        <td>@Html.DisplayNameFor(Model => Model.PaperTime)</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelitem => item.PaperName)</td>
+            <td>@Html.DisplayFor(modelitem => item.PaperExplain)</td>
+            <td>@Html.DisplayFor(modelitem => item.PaperTime)</td>
+            <td>@Html.ActionLink("开始答题", "BeginAnswer", new { PaperID = item.PaperID })</td>
+        </tr>
+    }
+</table>

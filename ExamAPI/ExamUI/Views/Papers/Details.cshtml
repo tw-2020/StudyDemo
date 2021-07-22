@@ -1,0 +1,93 @@
+﻿@using ExamUI.Models
+@model IEnumerable<ExamUI.Models.Topic>
+@{
+    ViewBag.Title = "试卷详情";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Paper paper = ViewBag.Paper;
+}
+
+<div>
+    <h4>试题信息</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            试卷名：
+        </dt>
+
+        <dd>
+            @paper.PaperName
+        </dd>
+
+        <dt>
+            试卷说明：
+        </dt>
+
+        <dd>
+            @paper.PaperExplain
+        </dd>
+
+        <dt>
+            试卷时长：
+        </dt>
+
+        <dd>
+            @paper.PaperTime
+        </dd>
+        <dt>
+            试卷总分：
+        </dt>
+
+        <dd>
+            @*@foreach (ExamUI.Models.Topic topic in Model)
+                {
+                    int i = 0;
+                    i= i+topic.TopicScore;
+                    @i
+                }*@
+            100
+        </dd>
+
+    </dl>
+
+
+    <h2>试卷详情</h2>
+
+
+    <fieldset>
+        <legend>试卷答案内容</legend>
+        <ul>
+            @foreach (ExamUI.Models.Topic topic in Model)
+            {
+                <li>
+                    <span style="font-weight:bold">@topic.TopicExplain (@topic.TopicScore 分)</span>
+                    <span>@Html.ActionLink("删除考题", "DeleteTopic", new { topic.TopicId, topic.PaperId })</span>
+                    <span>@Html.ActionLink("-修改考题", "UpdateTopic", new { topic.TopicId, topic.PaperId })</span>
+                    <ul>
+                        @if (topic.TopicType == 1)
+                        {
+                            <li>A. @topic.TopicA</li>
+                            <li>B. @topic.TopicB</li>
+                            <li>C. @topic.TopicC</li>
+                            <li>D. @topic.TopicD</li>
+
+                        }
+                        else if (topic.TopicType == 2)
+                        {
+                            <li>该题是判断题</li>
+                        }
+                        else if (topic.TopicType == 3)
+                        {
+                            <li>该题是问答题</li>
+                        }
+                    </ul>
+
+
+                </li>
+            }
+        </ul>
+
+
+    </fieldset>
+    <span>@Html.ActionLink("添加考题", "Add", new { paper.PaperID })</span> |
+    <span>@Html.ActionLink("修改试卷信息", "Edit", new { id = paper.PaperID })</span> |
+    <span>@Html.ActionLink("返回试卷列表", "Index")</span>

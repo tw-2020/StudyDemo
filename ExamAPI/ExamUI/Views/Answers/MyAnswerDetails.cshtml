@@ -1,0 +1,187 @@
+﻿@model ExamUI.Models.Answer
+
+@{
+    ViewBag.Title = "考试详情";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //ExamUI.Models.Answer answer = (ExamUI.Models.Answer)ViewBag.answer;
+}
+<h2>@ViewBag.Title</h2>
+<table>
+    <tr>
+        <td>
+            <h4>试卷描述</h4><hr />
+            @Html.DisplayNameFor(model => model.Paper.PaperName)
+            @Html.DisplayFor(model => model.Paper.PaperName) <br />
+            @Html.DisplayNameFor(model => model.Paper.PaperExplain)
+            @Html.DisplayFor(model => model.Paper.PaperExplain) <br />
+            @Html.DisplayNameFor(model => model.Paper.PaperTime)
+            @Html.DisplayFor(model => model.Paper.PaperTime) <br />
+        </td>
+        <td>
+            <h4>考生信息</h4>
+            @Html.DisplayNameFor(model => model.Student.StuName)
+            @Html.DisplayFor(model => model.Student.StuName) <br />
+            @Html.DisplayNameFor(model => model.Student.StuGrade)
+            @Html.DisplayFor(model => model.Student.StuGrade) <br />
+            @Html.DisplayNameFor(model => model.AnswerTime)
+            @Html.DisplayFor(model => model.AnswerTime) <br />
+        </td>
+    </tr>
+</table>
+<!--全部答题分布视图-->
+<fieldset>
+    <legend>试卷内容</legend>
+    
+    <ul style="list-style:inside;">
+        @if (Model.AnswerState == 2)
+        {
+            @foreach (ExamUI.Models.Detail item in ViewBag.Details)
+            {
+                <li>
+                    <span style="font-weight:bold">@item.Topic.TopicExplain </span>(@item.Topic.TopicScore 分)
+                    <ul style="padding-left:30px;">
+                        @if (item.Topic.TopicType == 1)
+                        {
+                            <li>A.@item.Topic.TopicA</li>
+                            <li>B.@item.Topic.TopicB</li>
+                            <li>C.@item.Topic.TopicC</li>
+                            <li>D.@item.Topic.TopicD</li>
+                            <li><span style="color:blue;">您的答案是：@item.DetailAnswer</span></li>
+                            <li style="color:red">
+                                正确答案是：@item.Topic.TopicAnswer
+                                @if (item.Topic.TopicAnswer.Equals(item.DetailAnswer))
+                                {
+                                    <span>√</span>
+                                }
+                                else
+                                {
+                                    <span>×</span>
+                                }
+
+                            </li>
+                        }
+                        else if (item.Topic.TopicType == 2)
+                        {
+                            <li>
+                                <span style="color:blue;">您的答案是：@(item.DetailAnswer == "1" ? "对" : "错")</span>
+                            </li>
+                            <li style="color:red">
+                                正确答案是：@(item.Topic.TopicAnswer.Equals('0') ? "正确" : "错误")
+
+                                @if (item.Topic.TopicAnswer.Equals(item.DetailAnswer))
+                                {
+                                    <span>√</span>
+                                }
+                                else
+                                {
+                                    <span>×</span>
+                                }
+
+                            </li>
+                        }
+                        else if (item.Topic.TopicType == 3)
+                        {
+                            <li><span style="color:blue;">您的答案是：@item.DetailAnswer</span></li>
+                            <li style="color:red">
+                                正确答案是：@item.Topic.TopicAnswer
+                                @if (item.Topic.TopicAnswer.Equals(item.DetailAnswer))
+                                {
+                                    <span>√</span>
+                                }
+                                else
+                                {
+                                    <span>×</span>
+                                }
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+            <div style="font-size:30px;color:red;padding:10px 50px">
+                <p>分数为：@Model.AnswerScore</p>
+            </div>
+        }
+        else if (Model.AnswerState == 1)
+        {
+            @foreach (ExamUI.Models.Detail detail in ViewBag.Details)
+            {
+                <li>
+                    <span style="font-weight:bold">@detail.Topic.TopicExplain</span>(@detail.Topic.TopicScore 分)
+                    <ul>
+                        @if (detail.Topic.TopicType == 1)
+                        {
+                            <li>A. @detail.Topic.TopicA</li>
+                            <li>B. @detail.Topic.TopicB</li>
+                            <li>C. @detail.Topic.TopicC</li>
+                            <li>D. @detail.Topic.TopicD</li>
+                            <li style="color:blue">您的答案是：@detail.DetailAnswer</li>
+
+                        }
+                        else if (detail.Topic.TopicType == 2)
+                        {
+                            if (detail.DetailAnswer != null)
+                            {
+                                <li style="color:blue">您的答案是：@(detail.DetailAnswer.Equals("0") ? "正确" :"错误")</li>
+                            }
+                            else
+                            {
+                                <li style="color:blue">您的答案是：</li>
+                            }
+                        }
+                        else if (detail.Topic.TopicType == 3)
+                        {
+                            <li style="color:blue">您的答案是：@detail.DetailAnswer</li>
+
+                        }
+                    </ul>
+                </li>
+            }
+            <div style="font-size:30px;color:red;padding:10px 50px">
+                <p>请老师尽快批阅！</p>
+            </div>
+        }
+        else
+        {
+            <ul>
+
+                @foreach (ExamUI.Models.Detail detail in ViewBag.Details)
+                {
+                    <li>
+                        <span style="font-weight:bold">@detail.Topic.TopicExplain (@detail.Topic.TopicScore 分)</span>
+                        <ul>
+                            @if (detail.Topic.TopicType == 1)
+                            {
+                                <li>A. @detail.Topic.TopicA</li>
+                                <li>B. @detail.Topic.TopicB</li>
+                                <li>C. @detail.Topic.TopicC</li>
+                                <li>D. @detail.Topic.TopicD</li>
+                                <li style="color:blue">您的答案是：@detail.DetailAnswer</li>
+
+                            }
+                            else if (detail.Topic.TopicType == 2)
+                            {
+                                if (detail.DetailAnswer != null)
+                                {
+                                    <li style="color:blue">您的答案是：@(detail.DetailAnswer.Equals("0") ? "正确" :"错误")</li>
+                                }
+                                else
+                                {
+                                    <li style="color:blue">您的答案是：</li>
+                                }
+
+                            }
+                            else if (detail.Topic.TopicType == 3)
+                            {
+                                <li style="color:blue">您的答案是：@detail.DetailAnswer</li>
+
+                            }
+                        </ul>
+                    </li>
+                }
+                @Html.ActionLink("继续答题", "BeginAnswer", new { controller = "Papers", Model.PaperID, Model.AnswerID })
+ 
+            </ul>
+
+        }
+    </ul>
+</fieldset>

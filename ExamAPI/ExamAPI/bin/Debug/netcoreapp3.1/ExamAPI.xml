@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ExamAPI</name>
+    </assembly>
+    <members>
+        <member name="M:ExamApi.Controllers.AnswersController.GetAnswerByStuIdEntity(System.Int32)">
+            <summary>
+            根据id获取当前答案列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.AnswersController.GetAnswerPap(System.Int32)">
+            <summary>
+            根据试卷id获取Paper
+            </summary>
+            <param name="PaperId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.AnswersController.GetAnswer(System.Int32)">
+            <summary>
+            根据answerId获取答案信息
+            </summary>
+            <param name="AnswerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.AnswersController.GetDetail(System.Int32)">
+            <summary>
+            根据answerId获取所有的答题信息
+            </summary>
+            <param name="AnswerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.AnswersController.GetTopic(System.Int32)">
+            <summary>
+            根据试题id获取试题
+            </summary>
+            <param name="TopicId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.AnswersController.CreateAnswer(ExamUI.Models.Answer)">
+            <summary>
+            创建一个新的答题列表
+            </summary>
+            <param name="answer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.AnswersController.UpdateDetail(ExamApi.Models.Detail)">
+            <summary>
+            修改回答
+            </summary>
+            <param name="detail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.AnswersController.UpdateAnswer(ExamUI.Models.Answer)">
+            <summary>
+            修改答案
+            </summary>
+            <param name="answer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.AnswersController.GetAllAnswer">
+            <summary>
+            获取所有答案
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.DetailsController.GetDetailsByCount(ExamApi.Models.Detail)">
+            <summary>
+            获取回答份数
+            </summary>
+            <param name="detail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.DetailsController.CreateDetail(ExamApi.Models.Detail)">
+            <summary>
+            创建新的回答
+            </summary>
+            <param name="detail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.DetailsController.GetDetails(ExamApi.Models.Detail)">
+             <summary>
+            根据答案id获取回答
+             </summary>
+             <param name="detail"></param>
+             <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.DetailsController.GetDetailsByAnswerId(System.Int32)">
+            <summary>
+            根据ansewerId获取回答
+            </summary>
+            <param name="aid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.PaperController.GetPapers">
+            <summary>
+            获取试卷列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.PaperController.CreatePaper(ExamApi.Models.Paper)">
+            <summary>
+            添加试卷
+            </summary>
+            <param name="Paper"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.PaperController.EditPaper(ExamApi.Models.Paper)">
+            <summary>
+            编辑试卷
+            </summary>
+            <param name="Paper"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.PaperController.DetailPapers(System.Int32)">
+            <summary>
+            获取试卷详情信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.PaperController.DeletePaper(System.Int32)">
+            <summary>
+            删除试卷
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.StudentController.Login(ExamApi.ViewModels.StudentLoginViewModel)">
+            <summary>
+             学生登录
+            </summary>
+            <returns> 学生实体 </returns>
+        </member>
+        <member name="M:ExamApi.Controllers.StudentController.GetStudents">
+            <summary>
+            获取学生列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.StudentController.CreateStudent(ExamApi.Models.Student)">
+            <summary>
+            添加学生
+            </summary>
+            <param name="student"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.StudentController.EditStudent(ExamApi.Models.Student)">
+            <summary>
+            编辑学生
+            </summary>
+            <param name="student"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.StudentController.DetailStudents(System.Int32)">
+            <summary>
+            获取学生详情信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.StudentController.DeleteStudent(System.Int32)">
+            <summary>
+            删除学生
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.TeacherController.Login(ExamApi.ViewModels.TeacherLoginViewModel)">
+            <summary>
+             老师登录
+            </summary>
+            <returns> 老师实体 </returns>
+        </member>
+        <member name="M:ExamApi.Controllers.TeacherController.GetTeachers">
+            <summary>
+            获取老师列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.TeacherController.CreateTeacher(ExamApi.Models.Teacher)">
+            <summary>
+            添加老师
+            </summary>
+            <param name="Teacher"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.TeacherController.EditTeacher(ExamApi.Models.Teacher)">
+            <summary>
+            编辑老师
+            </summary>
+            <param name="Teacher"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.TeacherController.DetailTeachers(System.Int32)">
+            <summary>
+            获取老师详情信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.TeacherController.DeleteTeacher(System.Int32)">
+            <summary>
+            删除老师
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.TopicController.GetTopics(System.Int32)">
+            <summary>
+            根据试卷id获取所有试题
+            </summary>
+            <param name="PaperId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.TopicController.GetTopicEntity(System.Int32)">
+            <summary>
+            根据试题id获取单独试题
+            </summary>
+            <param name="TopicId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.TopicController.CreateTopic(ExamAPI.Models.Topic)">
+            <summary>
+            创建新的试题
+            </summary>
+            <param name="topic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.TopicController.GetTopicsByPaperId(System.Int32)">
+            <summary>
+            根据试卷id获取所有试题
+            </summary>
+            <param name="PaperId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.TopicController.DeleteTopic(System.Int32)">
+            <summary>
+            删除试题
+            </summary>
+            <param name="TopicId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExamApi.Controllers.TopicController.SaveTopic(ExamAPI.Models.Topic)">
+            <summary>
+            修改试题
+            </summary>
+            <param name="topic"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

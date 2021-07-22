@@ -1,0 +1,54 @@
+﻿@model ExamUI.Models.Student
+@{
+    ViewBag.Title = "学生详情";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h2>学生详情</h2>
+
+<div>
+    <h4>学生信息</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.StuName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StuName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StuSex)
+        </dt>
+        <dd>
+            @(Model.StuSex?"男":"女")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StuPhone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StuPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StuEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StuEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StuGrade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StuGrade)
+        </dd>
+    </dl>
+</div>
+
+<p> 
+    @Html.ActionLink("编辑","Edit",new { id = Model.StuID}) |
+    @if (ViewBag.Type == "老师"){@Html.ActionLink("返回学生列表","Index")}
+</p>

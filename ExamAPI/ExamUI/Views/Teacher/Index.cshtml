@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ExamUI.Models.Teacher>
+@{
+    ViewBag.Title = "老师列表";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>老师列表</h2>
+<p>
+    @Html.ActionLink("添加新的老师","Create")
+</p>
+<table class="table">
+    <tr>
+        <td>@Html.DisplayNameFor(Model =>Model.TeacherName)</td>
+        <td>@Html.DisplayNameFor(Model =>Model.TeacherLoginName)</td>
+        <td>@Html.DisplayNameFor(Model => Model.TeacherLoginPwd)</td>
+        <td>@Html.DisplayNameFor(Model => Model.TeacherPhone)</td>
+        <td>@Html.DisplayNameFor(Model => Model.TeacherEmail)</td>
+    </tr>
+    @foreach (var item in Model) { 
+<tr>
+    <td>@Html.DisplayFor(modelitem => item.TeacherName)</td>
+    <td>@Html.DisplayFor(modelitem => item.TeacherLoginName)</td>
+    <td>@Html.DisplayFor(modelitem => item.TeacherLoginPwd)</td>
+    <td>@Html.DisplayFor(modelitem => item.TeacherPhone)</td>
+    <td>@Html.DisplayFor(modelitem => item.TeacherEmail)</td>
+    <td>@Html.ActionLink("编辑", "Edit", new { id = item.TeacherID })</td>
+    <td>@Html.ActionLink("详情", "Details", new { id = item.TeacherID })</td>
+    <td>@Html.ActionLink("删除", "Delete", new { id = item.TeacherID })</td>
+</tr>
+    }
+</table>

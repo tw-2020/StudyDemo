@@ -1,0 +1,69 @@
+﻿<!--导入jquery需要的js和样式文件-->
+<script src="/UI/jquery-1.7.1.min.js"></script>
+<script src="/UI/jquery.unobtrusive-ajax.min.js"></script>
+
+@using ExamUI.Models
+@model ExamUI.Models.Answer
+@{ 
+    ViewBag.Title = "在线考试";
+    Answer answer = (Answer)ViewBag.answer;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>在线考试</h2>
+<table>
+    <tr>
+        <td>
+            <h4>试卷描述</h4><hr />
+            @Html.DisplayNameFor(model => model.Paper.PaperName)
+            @Html.DisplayFor(model => model.Paper.PaperName) <br />
+            @Html.DisplayNameFor(model => model.Paper.PaperExplain)
+            @Html.DisplayFor(model => model.Paper.PaperExplain) <br />
+            @Html.DisplayNameFor(model => model.Paper.PaperTime)
+            @Html.DisplayFor(model => model.Paper.PaperTime) <br />
+        </td>
+        <td>
+            <h4>考生信息</h4>
+            @Html.DisplayNameFor(model => model.Student.StuName)
+            @Html.DisplayFor(model => model.Student.StuName) <br />
+            @Html.DisplayNameFor(model => model.Student.StuGrade)
+            @Html.DisplayFor(model => model.Student.StuGrade) <br />
+            @Html.ActionLink("交卷", "SubmitAnswer", new { controller = "Answers", Model.AnswerID })
+        </td>
+    </tr>
+</table>
+
+<fieldset>
+    <legend>答题区</legend>
+    <form action="/Answers/SubmitDetail" data-ajax="true" data-ajax-method="Post" data-ajax-mode="replace" data-ajax-update="#topic" id="form0" method="post">
+        <div id="topic" style="border:1px solid gray">
+            <!--展示所有考题序号链接-->
+            @for (int i = 1; i <= Model.Paper.Topic.Count; i++)
+            {
+                <a href="#" onclick="topic(@Model.AnswerID,@i)">@i</a>
+            }
+            <a href="#" onclick="showAnswer(@Model.AnswerID);">试卷内容</a>
+            @*<a href="#" onclick="showAnswer(@answer.AnswerID);">试卷内容</a>*@
+        </div>
+    </form>
+</fieldset>
+
+<script type="text/javascript">
+    //按排序编号显示考题
+    function topic(aid, sort) {
+        var url = '/Answers/_Topic?aid=' + aid + '&sort=' + sort;
+        $.get(url, function (data) {
+            $("#topic").html(data);
+        })
+    }
+    //显示所有考题
+    function showAnswer(aid) {
+        var url = '/Answers/_AllDetailStu?aid=' + aid;
+        $.get(url, function (data) {
+            $("#topic").html(data);
+        })
+    }
+
+    //默认显示第一题
+    $(topic(@answer.AnswerID,1))
+</script>

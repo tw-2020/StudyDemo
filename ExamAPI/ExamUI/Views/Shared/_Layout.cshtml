@@ -1,0 +1,28 @@
+﻿@using ExamUI.Models
+@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>驾考在线 - @ViewBag.Title</title>
+
+    <!--导入项目所需的样式文件-->
+    <link href="/css/global.css" rel="stylesheet" />
+    <link href="/css/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="all">
+        <!--页眉-->
+        @await Component.InvokeAsync("Header")
+
+        <div id="content">
+            <!--页面内容部分-->
+            @RenderBody()
+            <!--页脚-->
+            <div id="footer">
+                <hr style="margin:20px 0px;" /> 在线科目一和科目四自动化考试   版权所有 - 2019
+            </div>
+        </div>
+    </div>
+</body>
+</html>
