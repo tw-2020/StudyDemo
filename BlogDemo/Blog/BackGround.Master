@@ -1,0 +1,212 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BackGround.master.cs" Inherits="Blog.BackGround" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        body {
+            background-image: url('Images/大背景.jpg')
+        }
+
+        #background {
+            position: absolute;
+            left: 365px;
+            top: 175px;
+            width: 525px;
+            height: 536px;
+        }
+
+        #h_img {
+            position: absolute;
+            left: 123px;
+            height: 157px;
+            width: 765px;
+            background-image: url('Images/menu.jpg')
+        }
+
+        #l_img {
+            height: 538px;
+            width: 235px;
+            position: relative;
+            left: 115px;
+            top: 157px;
+            background-image: url('Images/left.jpg')
+        }
+
+        #Calendar1 {
+            position: relative;
+            top: 30px;
+            left: 0px;
+            top: 31px;
+            width: 228px;
+            height: 38px;
+        }
+
+        .text_middle {
+            height: 100px;
+            width: 120px;
+            position: relative;
+            top: 80px;
+            left: 55px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 25px
+        }
+
+        .text_bottom {
+            height: 100px;
+            width: 120px;
+            position: relative;
+            top: 150px;
+            left: 55px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 100px
+        }
+        /*
+            登录表格
+        */
+        .t_h {
+            font-size: 14px;
+            margin-top: 108px;
+            margin-left: 80px
+        }
+        /*
+            顶部首页，博客文章
+        */
+        .text_head {
+            font-size: 14px;
+            margin-left: 30px;
+        }
+
+            .text_head a {
+                color: black;
+                text-decoration: none;
+            }
+
+                .text_head a:hover {
+                    color: black;
+                    background-color: yellow;
+                }
+
+        /*登录成功之后显示消息*/
+        .t_h_1 {
+            width: 650px;
+            z-index: 999;
+            position: relative;
+            left: 80px;
+        }
+
+            .t_h_1 table {
+                text-align: right;
+                font-size: 14px;
+            }
+
+                .t_h_1 table td {
+                    width: 100px;
+                }
+
+                    .t_h_1 table td a {
+                        text-decoration: none;
+                        color:black;
+                    }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="h_img">
+            <div class="text_head">
+                <a href="Login.aspx">首页</a>&nbsp;
+                <a href="Essay.aspx">博客文章</a>&nbsp;
+                <a href="Help.aspx">帮助</a>
+            </div>
+            <div class="t_h">
+                <asp:Panel ID="Panel1" runat="server">
+                    <table>
+                        <tr>
+                            <td>用户名：<asp:TextBox ID="TextBox1" runat="server" Width="66px"></asp:TextBox></td>
+                            <td>密码：<asp:TextBox ID="TextBox2" runat="server" Width="66px" TextMode="Password"></asp:TextBox></td>
+                            <td>验证码：<asp:TextBox ID="TextBox3" runat="server" Width="66px"></asp:TextBox></td>
+                            <td>
+                                <asp:Image ID="Image2" runat="server" ImageUrl="~/YanZheng.aspx" />
+                            </td>
+                            <td>
+                                <asp:Button ID="Button1" runat="server" Text="登录" OnClick="Button1_Click" />
+                                <asp:Button ID="Button2" runat="server" Text="注册" OnClick="Button2_Click" />
+                            </td>
+                            <td style="color: red">管理员登录</td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+            </div>
+            <div class="t_h_1">
+                <asp:Panel ID="Panel2" runat="server" Height="16px">
+                    <table>
+                        <tr>
+                            <td style="text-align: left">
+                                <asp:Label ID="Label1" runat="server" Text=""></asp:Label></td>
+                            <td>
+                                <a href="Edit.aspx">个人信息修改</a>
+                            </td>
+                            <td>
+                                <a href="ManagerEssay.aspx">文章管理</a>
+                            </td>
+                            <td>
+                                <a href="Commont.aspx">评论管理</a>
+                            </td>
+                            <td>
+                                <a href="Friend.aspx">通讯管理</a>
+                            </td>
+                            <td>
+                                <a href="Logout.aspx">退出登录</a>
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+            </div>
+
+        </div>
+        <div id="background">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div id="l_img">
+            <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" CssClass="auto-style1" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" NextPrevFormat="FullMonth" style="left: 0px; top: 31px; width: 230px; height: 123px">
+                <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+                <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
+                <OtherMonthDayStyle ForeColor="#999999" />
+                <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
+                <TodayDayStyle BackColor="#CCCCCC" />
+            </asp:Calendar>
+            <div class="text_middle">
+                <table>
+                    <tr>
+                        <td>
+                            <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="text_bottom">
+                <span><a href="#">明日科技</a></span>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
