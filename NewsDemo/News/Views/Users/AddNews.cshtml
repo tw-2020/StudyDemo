@@ -1,0 +1,39 @@
+﻿@model News.Models.NewsModel
+@{
+    Layout = "~/Views/Shared/_LayoutView.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div>
+        <h2>新闻添加：【@ViewBag.style】</h2>
+        <table>
+            <input type="hidden" name="Style" value="@ViewBag.style" />
+            <tr>
+                <td>新闻类别：</td>
+                <td>
+                    @Html.DropDownListFor(model => model.Type, ViewBag.NewsType as IEnumerable<SelectListItem>, htmlAttributes: new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>新闻标题</td>
+                <td>
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                </td>
+                <td>(控制在15个字符以内)</td>
+            </tr>
+            <tr>
+                <td>新闻内容</td>
+                <td>
+                    @Html.TextAreaFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center">
+                    <input type="submit" value="添 加" />
+                    <input type="reset" value="重 置" />
+                </td>
+            </tr>
+        </table>
+    </div>
+}

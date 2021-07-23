@@ -1,0 +1,116 @@
+﻿@model IEnumerable<News.Models.NewsModel>
+
+<head>
+    @Styles.Render("~/Content/News.css")
+</head>
+<body>
+    <header>
+        <table id="h_t1">
+            <tr>
+                <td colspan="2" style="text-align: center; font-size: 10px">设置主页 收藏本站</td>
+            </tr>
+            <tr>
+                <td>
+                    <span style="color: blue">请输入关键字：</span>
+                    <input type="text" />
+                </td>
+                <td>
+                    <input id="Button1" type="submit" value="站内搜索" />
+                </td>
+            </tr>
+        </table>
+        <ul id="h_u1">
+            <li>
+                首页
+            </li>
+            <li>
+                时政
+            </li>
+            <li>
+                经济
+            </li>
+            <li>
+                军事
+            </li>
+            <li>
+                科教
+            </li>
+            <li>
+                法制
+            </li>
+            <li>
+                社会
+            </li>
+            <li>
+                体育
+            </li>
+            <li>
+                娱乐
+            </li>
+        </ul>
+    </header>
+    <section>
+        <div class="auto-style1">
+            <div class="sec_dd" style="background-image: url(../Images/时政要闻.jpg)">
+                <img class="sec_d_img" src="~/Images/图片时政要闻.jpg" />
+                <div class="sec_d_font">
+                </div>
+            </div>
+            <div class="sec_dd" style="background-image: url(../Images/经济动向.jpg)">
+                <img class="sec_d_img" src="~/Images/经济动向图片.jpg" />
+                <div class="sec_d_font">
+                </div>
+            </div>
+        </div>
+        <div class="sec_d">
+            <div class="sec_dd" style="background-image: url(../Images/科学教育.jpg)">
+                <img class="sec_d_img" src="~/Images/图片科学教育.jpg" />
+                <div class="sec_d_font">
+                </div>
+            </div>
+            <div class="sec_dd" style="background-image: url(../Images/法制道德.jpg)">
+                <img class="sec_d_img" src="~/Images/法制道德图片.jpg" />
+                <div class="sec_d_font">
+                </div>
+            </div>
+        </div>
+        <div class="sec_d">
+            <div class="sec_dd" style="background-image: url(../Images/社会现象.jpg)">
+                <img class="sec_d_img" src="~/Images/社会现象图片.jpg" />
+                <div class="sec_d_font">
+                </div>
+            </div>
+            <div class="sec_dd" style="background-image: url(../Images/体育世界.jpg)">
+                <img class="sec_d_img" src="~/Images/体育世界图片.jpg" />
+                <div class="sec_d_font">
+                </div>
+            </div>
+        </div>
+        <div class="sec_d">
+            <div class="sec_dd" style="background-image: url(../Images/时尚娱乐.jpg)">
+                <img class="sec_d_img" src="~/Images/时尚娱乐图片.jpg" />
+                <div class="sec_d_font">
+                </div>
+            </div>
+            <div class="sec_dd" style="background-image: url(../Images/世界军事.jpg)">
+                <img class="sec_d_img" src="~/Images/世界军事图片.jpg" />
+                <div class="sec_d_font">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <table>
+            <tr>
+                <td>
+                    吉林省明日有限公司 客户服务热线：(0431)8497226 &nbsp;&nbsp;&nbsp;客户服务邮箱：mingrisoft@mingrisoft.com
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center">
+                    CopyRight&nbsp; &copy;&nbsp;明日科技有限公司 网络开发 <a href="/Users/Login">后台入口
+                </td>
+            </tr>
+        </table>
+    </footer>
+</body>

@@ -1,0 +1,21 @@
+﻿body {
+    margin: auto;
+    width: 786px;
+}
+
+#h_d {
+    background-image: url('../Images/新闻发布系统后台管理登录.jpg');
+    height: 254px;
+    width: 779px;
+}
+
+    #h_d table {
+        position: relative;
+        top: 120px;
+        left: 250px
+    }
+
+.auto-style1 {
+    width: 78px;
+    height: 25px;
+}

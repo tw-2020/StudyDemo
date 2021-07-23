@@ -1,0 +1,73 @@
+﻿
+body {
+    margin: auto;
+    width: 786px;
+}
+
+header {
+    background-image: url("../Images/新闻发布系统首页1.jpg");
+    height: 215px;
+    width: 779px;
+    position: relative;
+}
+
+#h_t1 {
+    font-size: 13px;
+    position: absolute;
+    top: 0px;
+    left: 300px;
+}
+
+#h_u1 {
+    position: absolute;
+    width: 597px;
+    height: 28px;
+    top: 29px;
+    left: 137px;
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+
+    #h_u1 li {
+        float: left;
+        height: 25px;
+        width: 61px;
+        text-align: center;
+        line-height: 24px;
+        list-style: none;
+        margin-left: 2px
+    }
+
+.sec_d {
+    width: 786px;
+    overflow: auto
+}
+
+.sec_dd {
+    height: 171px;
+    width: 391px;
+    float: left;
+}
+
+.sec_d_img {
+    float: left;
+    margin-top: 55px;
+    margin-left: 30px
+}
+
+.sec_d_font {
+    float: left;
+    height: 83px;
+    width: 204px;
+    margin-top: 55px;
+    margin-left: 20px;
+}
+
+footer table {
+    background-image: url('../Images/底.jpg');
+    width: 780px;
+    height: 60px;
+    font-size: 13px;
+    padding-top: 20px;
+    padding-left: 80px
+}

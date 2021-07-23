@@ -1,0 +1,42 @@
+﻿@model string
+@{
+    ViewBag.Title = "系统后台登录页面";
+}
+<head>
+    @Styles.Render("~/Content/Users.css")
+</head>
+<body>
+    <form id="form1" runat="server" method="post" action="/Users/Index">
+        <div id="h_d">
+            <table>
+                <tr>
+                    <td>管理员姓名:</td>
+                    <td>
+                        <input id="User" type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>管理员密码：</td>
+                    <td>
+                        <input id="Pwd" type="password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>验证码:</td>
+                    <td>
+                        <input id="yanzheng" type="text" />
+                    </td>
+                    <td>
+                        <input type="image" src="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center">
+                        <input type="submit" value="登录" class="auto-style1" />
+                        <input type="button" value="取消" class="auto-style1" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
